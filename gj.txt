@@ -1,0 +1,26 @@
+x1 = 0 
+x2 = 0
+x3 = 0
+for (iter in 1:100) {
+
+x1_new = (3 + 5*x2 + 2*x3) / 10
+x2_new = (3 + 4*x1 + 3*x3) / 10
+x3_new = (-3 - x1 - 6*x2) / 10
+x1=x1_new  
+x2=x2_new
+x3=x3_new
+
+if (max(abs(c(x1_new, x2_new, x3_new))) < 1e-3)
+ {
+  cat("\n Jacobi method converged in", iter, "iterations\n")
+  break
+}
+# Update values for next iteration
+x1 = round(x1_new,4)
+x2 = round(x2_new,4)
+x3 = round(x3_new,4)
+}
+cat("\n Final Solution using Gauss jacobi :\n")
+cat("x1 =", x1, "\n")
+cat("x2 =", x2, "\n")
+cat("x3 =", x3, "\n")
